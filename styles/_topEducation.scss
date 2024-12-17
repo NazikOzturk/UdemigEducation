@@ -1,0 +1,71 @@
+@import "./variables";
+@import "./global";
+
+#top-educations {
+  .center-text {
+    text-align: center;
+    h2 {
+      font-size: $h2-font;
+      font-weight: 800;
+    }
+    button {
+      margin-top: 4rem;
+    }
+  }
+  .top-educations-content {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    justify-content: center;
+    gap: 3rem;
+    margin: 5rem;
+
+    .box {
+      position: relative;
+
+      img {
+        width: 325px;
+        height: 300px;
+        object-fit: cover;
+        border-radius: 10px;
+        filter: brightness(70%);
+
+        @extend .transition;
+        &:hover {
+          scale: 1.05;
+          cursor: pointer;
+        }
+      }
+      .box-bottom {
+        position: absolute;
+        bottom: 40px;
+        left: 25px;
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        h3,
+        h4,
+        h5 {
+          display: flex;
+          gap: 10px;
+          align-items: center;
+          font-size: 18px;
+          i {
+            color: $main-color;
+          }
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: 1300px) {
+  #top-educations .top-educations-content {
+    grid-template-columns: repeat(2, 1fr); /* 2 sütun */
+  }
+}
+
+@media (max-width: 830px) {
+  #top-educations .top-educations-content {
+    grid-template-columns: 1fr; /* Tek sütun */
+  }
+}
